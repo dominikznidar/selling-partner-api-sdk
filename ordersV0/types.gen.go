@@ -592,7 +592,7 @@ type PointsGrantedDetail struct {
 type ProductInfoDetail struct {
 
 	// The total number of items that are included in the ASIN.
-	NumberOfItems *int `json:"NumberOfItems,omitempty"`
+	NumberOfItems *string `json:"NumberOfItems,omitempty"`
 }
 
 // PromotionIdList defines model for PromotionIdList.
