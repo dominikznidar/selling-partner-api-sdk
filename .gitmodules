@@ -1,0 +1,6 @@
+[submodule "internal/selling-partner-api-models"]
+	path = internal/selling-partner-api-models
+	url = https://github.com/amzn/selling-partner-api-models.git
+[submodule "internal/gosdk-codegen"]
+	path = internal/gosdk-codegen
+	url = git@github.com:amzapi/gosdk-codegen.git
