@@ -1,2 +1,5 @@
 /main.go
 .idea
+
+gosdk-codegen
+!internal/gosdk-codegen

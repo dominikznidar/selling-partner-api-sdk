@@ -1,12 +1,14 @@
 # Amazon's Selling Partner API (SP-API) Golang SDK
 
-[![Go Reference](https://pkg.go.dev/badge/gopkg.me/selling-partner-api-sdk.svg)](https://pkg.go.dev/gopkg.me/selling-partner-api-sdk)
-
 ## Installation
+To regenerate the client code, run the following command::
+```bash
+make all
+```
 
-~~~~
-go get -u gopkg.me/selling-partner-api-sdk
-~~~~
+This process will retrieve the most recent Swagger configuration from the official Amazon repository and convert it 
+to the OpenAPI specification.
+It will utilize a tool to generate the client code and associated types.
 
 ## Progress
 

@@ -18,11 +18,11 @@ func Test_decrypt(t *testing.T) {
 
 	encryptedData1, err := ioutil.ReadFile(ecryptedFileName1)
 	if err != nil {
-		t.Fatal("Failed to read the file " +ecryptedFileName1+ ": ", err )
+		t.Fatal("Failed to read the file "+ecryptedFileName1+": ", err)
 	}
 	expectedDecryptedData1, err := ioutil.ReadFile(decryptedFileName1)
 	if err != nil {
-		t.Fatal("Failed to read the file " +decryptedFileName1+ ": ", err )
+		t.Fatal("Failed to read the file "+decryptedFileName1+": ", err)
 	}
 	tests := []struct {
 		name    string
@@ -32,42 +32,42 @@ func Test_decrypt(t *testing.T) {
 	}{
 		{
 			name: "Successful decryption of a report",
-			args : args{
-				encryptionKey:"5XgmfCcQSWn5q4u69kM5O0XTsgP2Fzbq+GcHpWJOGR0=",
-				initVector:"bXCrfJN8QrsWVRZ7J9aPIg==",
+			args: args{
+				encryptionKey: "5XgmfCcQSWn5q4u69kM5O0XTsgP2Fzbq+GcHpWJOGR0=",
+				initVector:    "bXCrfJN8QrsWVRZ7J9aPIg==",
 				dataToDecrypt: encryptedData1,
 			},
-			want : expectedDecryptedData1,
+			want:    expectedDecryptedData1,
 			wantErr: false,
 		},
 		{
 			name: "Decryption of a report failed: invalid base64 key encoding",
-			args : args{
-				encryptionKey:"5XgmfCcQSWn5q4u69kM5O0XTsgP2Fzbq+GcHpWJOGR0=%",
-				initVector:"bXCrfJN8QrsWVRZ7J9aPIg==",
+			args: args{
+				encryptionKey: "5XgmfCcQSWn5q4u69kM5O0XTsgP2Fzbq+GcHpWJOGR0=%",
+				initVector:    "bXCrfJN8QrsWVRZ7J9aPIg==",
 				dataToDecrypt: encryptedData1,
 			},
-			want : nil,
+			want:    nil,
 			wantErr: true,
 		},
 		{
 			name: "Decryption of a report failed: invalid base64 init vector encoding",
-			args : args{
-				encryptionKey:"5XgmfCcQSWn5q4u69kM5O0XTsgP2Fzbq+GcHpWJOGR0=",
-				initVector:"bXCrfJN8QrsWVRZ7J9aPIg==%",
+			args: args{
+				encryptionKey: "5XgmfCcQSWn5q4u69kM5O0XTsgP2Fzbq+GcHpWJOGR0=",
+				initVector:    "bXCrfJN8QrsWVRZ7J9aPIg==%",
 				dataToDecrypt: encryptedData1,
 			},
-			want : nil,
+			want:    nil,
 			wantErr: true,
 		},
 		{
 			name: "Decryption of a report failed: invalid key length",
-			args : args{
-				encryptionKey:"dGVzdHdyb25na2V5",
-				initVector:"bXCrfJN8QrsWVRZ7J9aPIg==",
+			args: args{
+				encryptionKey: "dGVzdHdyb25na2V5",
+				initVector:    "bXCrfJN8QrsWVRZ7J9aPIg==",
 				dataToDecrypt: encryptedData1,
 			},
-			want : nil,
+			want:    nil,
 			wantErr: true,
 		},
 	}
